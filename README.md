@@ -43,7 +43,7 @@ class Rule1 extends abstractRule
 {
     public function across()
     {
-        echo "没通过规则，打八折\n";
+        echo "通过规则，打八折\n";
         return true;
     }
 
@@ -87,7 +87,7 @@ $promoteManage->apply();
 ```
 通过规则，购A
 执行行为，赠B
-没通过规则，打八折
+通过规则，打八折
 执行行为，订单打八折
 ```
 
