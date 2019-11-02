@@ -33,36 +33,35 @@ class Rule extends abstractRule
 
     public function across()
     {
-        echo "通过规则\n";
+        echo "通过规则，购A\n";
         return true;
     }
 
 }
+
 class Rule1 extends abstractRule
 {
     public function across()
     {
-        echo "没通过规则\n";
-        return false;
+        echo "没通过规则，打八折\n";
+        return true;
+    }
+
+    public function execute()
+    {
+        echo "执行行为，订单打八折\n";
     }
 }
 class Action implements ActionInterface
 {
     public function execute()
     {
-        echo "执行行为\n";
+        echo "执行行为，赠B\n";
     }
 
 }
-class Action1 implements ActionInterface
-{
 
-    public function execute()
-    {
-        echo "没有执行行为\n";
-    }
-}
-
+//特殊规则Rule和Action分离
 $promote = new Promote();
 $rule = new Rule();
 $action = new Action();
@@ -71,11 +70,11 @@ $promote->addAction($action);
 
 
 
+//一般规则只有Rule
 $promote1 = new Promote();
 $rule1= new Rule1();
-$action1 = new Action1();
+
 $promote1->addRule($rule1);
-$promote1->addAction($action1);
 
 $promoteManage=new PromoteManage();
 
@@ -83,13 +82,13 @@ $promoteManage->addPromote($promote);
 $promoteManage->addPromote($promote1);
 
 $promoteManage->apply();
-
 ```
 输出
 ```
-通过规则
-执行行为
-没通过规则
+通过规则，购A
+执行行为，赠B
+没通过规则，打八折
+执行行为，订单打八折
 ```
 
 ## Contributing
