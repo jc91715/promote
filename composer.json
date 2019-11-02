@@ -1,4 +1,14 @@
 {
+    "name": "jc91715\/promote",
+    "description": "promote",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jc91715",
+            "email": "jc370234915@gmail.com"
+        }
+    ],
+    "require": {},
     "autoload": {
         "psr-4": {
             "Jc91715\\Promote\\": "src"
